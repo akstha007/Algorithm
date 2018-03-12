@@ -99,6 +99,30 @@ class Solution:
 
         return pList
 
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if root == None:
+            return []
+
+        queue = []
+        queue.append(root)
+        node_list = []
+        while len(queue) > 0:
+            node = queue.pop(0)
+            #print(node.val)
+            node_list.append(node.val)
+
+            if node.left != None:
+                queue.append(node.left)
+
+            if node.right != None:
+                queue.append(node.right)
+
+        return node_list
+
 
 def main():
     print("Tree:")
@@ -111,11 +135,12 @@ def main():
     root.right.right = TreeNode(7)
 
     sol = Solution()
+
     print("Tree in File structure display:")
     sol.displayTreeFileStructure(root, 0)
 
     print("Tree in branch structure display:")
-    #sol.displayTreeBranch(root, 0, 0)
+    sol.displayTreeBranch(root, 0, 0)
 
     pre_order = sol.preorderTraversal(root)
     print ("Pre Order traversal:")
@@ -129,6 +154,9 @@ def main():
     print ("Post Order traversal:")
     print(pre_order)
 
+    level_order = sol.levelOrder(root)
+    print ("Level Order traversal / Breadth first Search:")
+    print(level_order)
 
 if __name__ == "__main__":
     main()

@@ -12,16 +12,15 @@ def long_sequence(str):
         for j in range(len(str)):
             if (i & (1 << j)) > 0:
                 test_str += str[j]
-        print(test_str)
+        #print(test_str)
         if isPallindrome(test_str) and len(test_str) > len(result):
             result = test_str
-            #break
 
     return result
 
 
 def main():
-    print("Longest Pallindrome sequence Problem:")
+    print("Longest Pallindrome sequence Problem: Brute Force Solution")
 
     test_str = "character"
     result = long_sequence(test_str)

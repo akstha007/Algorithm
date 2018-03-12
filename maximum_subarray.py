@@ -37,9 +37,9 @@ def max_subarray_recursive(arr, n):
 
 def max_subarray_dynamic(arr):
     result = 0
-    ms = [0 for _ in range(len(arr) +1)]
+    ms = [0 for _ in range(len(arr) + 1)]
     for i in range(1, len(arr)):
-        ms[i] = max(arr[i-1], arr[i-1] + ms[i - 1])
+        ms[i] = max(arr[i - 1], arr[i - 1] + ms[i - 1])
         result = max(result, ms[i])
 
     return result
